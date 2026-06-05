@@ -1,0 +1,126 @@
+{
+    "margin-left": 6,
+    "margin-right": 6,
+    "margin-top": 6,
+    "layer": "bottom",
+    //LEFT
+    "modules-left": [
+        "clock",
+        "pulseaudio",
+        "network"
+    ],
+    //CENTER
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    //RIGHT
+    "modules-right": [
+        "cpu",
+        "systemd-failed-units"
+    ],
+
+
+//END MODULE
+
+
+//========== Module Config ==========\\
+
+//===== Clock =====\\
+"clock": {
+    "interval": 60,
+    "tooltip": true,
+    "format": "[ {:%Y-%m-%d} ]",
+    "tooltip-format": "{:%H.%M}",
+    "min-length": 10
+    },
+
+//===== CPU =====\\
+    "cpu": {
+    "interval": 10,
+    "format": "[ {usage}%  ]",
+    "min-length": 10,
+    "states": {
+      "good": 1,  
+      "warning": 59,
+      "critical": 89
+    }
+},
+
+//===== Workspaces =====\\
+    "hyprland/workspaces": {
+        "format": "[{icon}]",
+            "format-icons": {
+            "1": "I",
+            "2": "II",
+            "3": "III",
+            "4": "IV",
+            "5": "V",
+            "active": "O",
+            "default": "D"
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+//===== Volume Control  =====\\
+   "pulseaudio": {
+   "format": "[ {volume}% {icon} ]",
+    "format-muted": "<span color='#808080'>[ DEAF ]</span>",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "default": [
+            "󰕿", 
+            "󰖀",
+            "󰕾"
+        ]
+    },
+    "scroll-step": 1,
+    "states": {
+      "muted": 0,
+      "good": 50, 
+      "warning": 100,
+      "critical": 150
+    },
+    "on-click": "kitty pulsemixer",
+    "ignored-sinks": [
+        "Easy Effects Sink"
+    ],
+    "min-length": 11
+},
+
+//===== Network =====\\
+    "network": {
+        "interface": "wlp0s20f0u4i2",
+        "format": "[  <span color='#ffffa5'>󰤯</span>  ]",
+        "format-wifi": "{icon}",
+        "format-icons": [
+            "<span color='#cc5500'>[  󰤟  ]</span>",
+            "<span color='#FFFF00'>[  󰤢  ]</span>",
+            "<span color='#2EFF2E'>[  󰤥  ]</span>",
+            "<span color='#00FF00'>[  󰤨  ]</span>"
+        ],
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "[  <span color='#ff0000'>󰤮</span>  ]",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ( {signalStrength}% )",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "<span color='#ff0000'>DISCONNECTED</span>",
+        "on-click": "nm-connection-editor"
+
+    },
+
+//===== Failed Units =====\\
+    "systemd-failed-units": {
+	"hide-on-ok": false,
+	"format": "<span color='#c00000'>[ BAD {nr_failed} ]</span>",
+	"format-ok": "<span color='#00c000'>[ SYS_OK ]</span>",
+	"system": true,
+	"user": false,
+    "min-length": 10
+    }
+
+}
+

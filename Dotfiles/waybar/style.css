@@ -1,0 +1,77 @@
+
+
+/* === Waybar Styling ====================================================== */
+
+*{
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 10pt;
+    padding: 1px 5px;
+    margin: 1px;
+}
+
+window#waybar {
+    background: rgba(30, 30, 30, 0.955);
+    border: 2.5px solid rgb(4, 0, 113);
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+/* === Volume ============================================================== */
+
+
+#pulseaudio.critical {
+    color: rgb(175, 0, 0);
+}
+
+#pulseaudio.warning {
+    color: rgb(190, 149, 0);
+}
+
+#pulseaudio.good {
+    color: rgb(10, 150, 0);
+}
+
+/* === CPU ================================================================= */
+
+#cpu.critical {
+    color: rgb(175, 0, 0);
+}
+
+#cpu.warning {
+    color: rgb(180, 60, 0);
+}
+
+#cpu.good {
+    color: rgb(10, 150, 0);
+}
+
+/* === Workspaces ========================================================== */
+
+#workspaces button {
+    color: rgb(255, 255, 255);
+    min-width: 70px;
+}
+
+#workspaces button.empty {
+    color: rgb(122, 122, 122);
+}
+
+#workspaces button.active {
+    color: rgb(0, 0, 150);
+    font-weight: bolder;
+}
+
+/* === Tooltip =============================================================== */
+
+tooltip {
+  background-color: rgb(28, 28, 28);
+  border: 2.5px solid rgb(4, 0, 113);
+  border-radius: 4px;
+}
+
+tooltip label {
+  color: #ffffff;
+}
+
+/* === ENDD ==================================================================================================================================== */
